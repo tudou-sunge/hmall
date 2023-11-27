@@ -56,10 +56,14 @@ public class LoginGlobalFilter implements GlobalFilter, Ordered {
             response.setRawStatusCode(401);
             return response.setComplete();
         }
-
+        String userInfo = userId.toString();
         System.out.printf("UserId:{}", userId);
+        ServerWebExchange exec = exchange.mutate()
+                .request(builder -> builder.header("user-info", userInfo))
+                .build();
+
         // 5. 放行
-        return chain.filter(exchange);
+        return chain.filter(exec);
     }
 
     @Override

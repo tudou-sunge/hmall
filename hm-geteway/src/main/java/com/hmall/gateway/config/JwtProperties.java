@@ -9,7 +9,6 @@ import java.time.Duration;
 
 @Data
 @ConfigurationProperties(prefix = "hm.jwt")
-@Component
 public class JwtProperties {
     private Resource location;
     private String password;

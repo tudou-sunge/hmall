@@ -1,5 +1,6 @@
 package com.hmall.gateway;
 
+import com.hmall.common.annotations.EnableUserInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

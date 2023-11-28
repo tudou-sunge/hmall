@@ -1,7 +1,8 @@
 package com.hmall.common.interceptor;
 
+import cn.hutool.core.util.StrUtil;
 import com.hmall.common.utils.UserContext;
-import org.springframework.util.StringUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,7 @@ public class UserInfoInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String userInfo = request.getHeader("userInfo");
-        if (StringUtils.hasLength(userInfo)) {
+        if (StrUtil.isNotBlank(userInfo)) {
             UserContext.setUser(Long.valueOf(userInfo));
         }
         return true;

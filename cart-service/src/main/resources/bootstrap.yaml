@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: cart-service
+  cloud:
+    nacos:
+      server-addr: ${hm.nacos.host}:8848
+      config:
+        file-extension: yaml
+        shared-configs:
+          - dataId: shared-jdbc.yaml
+          - dataId: shared-log.yaml
+          - dataId: shared-swagger.yaml
+  profiles:
+    active: local
